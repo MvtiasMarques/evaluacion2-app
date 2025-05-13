@@ -1,0 +1,118 @@
+/* c:\Users\RADEON\evaluacion2-app\src\components\Header.css */
+
+.main-header {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Top Navigation Bar */
+.top-nav-bar {
+  background-color: #f0f8ff; /* Color de fondo celeste muy claro, ajustar al color exacto */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #dee2e6; /* Línea divisoria sutil */
+}
+
+.top-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-logo {
+  margin-right: 20px; /* Espacio a la derecha del logo */
+}
+
+.top-nav-links .nav-link {
+  color: #007bff; /* Color principal de Bootstrap, ajustar al color exacto del ejemplo */
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.top-nav-links .nav-link:hover {
+  color: #0056b3; /* Un azul más oscuro para el hover */
+}
+
+
+/* Main Navigation Bar */
+.main-nav-bar {
+  background-color: #004A7F; /* Azul oscuro principal, ajustar al color exacto */
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+.main-nav-container {
+    justify-content: center; /* Centra los links cuando la barra no está colapsada */
+}
+
+.main-nav-links .nav-link {
+  color: white;
+  font-weight: bold;
+  padding: 1rem 1.5rem; /* Más padding para los items principales */
+  text-transform: uppercase;
+  font-size: 1rem;
+  border-bottom: 3px solid transparent; /* Para el efecto de la pestaña activa */
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.main-nav-links .nav-link:hover {
+  background-color: #003359; /* Un poco más oscuro al pasar el mouse */
+  color: white;
+}
+
+.main-nav-links .nav-link.active {
+  background-color: white;
+  color: #004A7F; /* Color del texto igual al fondo de la barra */
+  border-bottom: 3px solid #ffc107; /* Un acento amarillo o el color que prefieras */
+}
+
+/* Responsive adjustments for toggler */
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Ajustes para que el logo y los links superiores estén bien alineados */
+.top-nav-bar .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 1rem; /* Ajusta según sea necesario */
+}
+
+.top-nav-bar .container-fluid {
+    align-items: center;
+}
+
+/* Asegurar que el contenedor principal de la navegación principal ocupe el ancho */
+.main-nav-bar .container-fluid {
+    width: 100%;
+}
+
+/* Media query para pantallas más pequeñas si es necesario ajustar el comportamiento del colapso */
+@media (max-width: 991.98px) {
+  .main-nav-links {
+    text-align: center; /* Centrar links en vista móvil */
+  }
+  .main-nav-links .nav-link {
+    padding: 0.75rem 1rem; /* Menos padding en móvil */
+    border-bottom: none; /* Quitar borde inferior en móvil */
+  }
+  .main-nav-links .nav-link.active {
+    background-color: #003359; /* Fondo diferente para activo en móvil */
+    color: white;
+    border-bottom: none;
+  }
+  .top-nav-links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px; /* Espacio si se apilan debajo del logo */
+  }
+  .top-nav-container {
+    flex-direction: column;
+  }
+}
+
