@@ -1,0 +1,42 @@
+/* src/components/ServiceCard.css */
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  color: #333; /* Color de texto oscuro para contraste con fondo blanco */
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon i {
+  color: #007bff; /* Color primario para el ícono, puedes ajustarlo */
+  /* fa-3x ya define un tamaño, pero puedes ajustarlo más si es necesario */
+}
+
+.service-card .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #0056b3; /* Un azul más oscuro para el título */
+}
+
+.service-card .card-text {
+  font-size: 0.95rem;
+  color: #555; /* Un gris para el texto de descripción */
+  line-height: 1.6;
+}
+
+/* Asegurar que las tarjetas dentro de un .row tengan la misma altura si es necesario */
+.row .service-card {
+  height: 100%; /* Esto funciona si el div padre (col-md-4) tiene display flex o similar */
+}

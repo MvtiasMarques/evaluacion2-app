@@ -3,22 +3,59 @@
 
 /* Estilos base */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f172a; /* Azul oscuro */
-  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fallback fonts añadidos */
+  background-color: #f4f7f6; /* Un fondo gris muy claro en lugar de azul oscuro */
+  color: #333; /* Color de texto principal oscuro para contraste */
   min-height: 100vh;
+  line-height: 1.6; /* Mejorar legibilidad */
+  font-size: 16px; /* Establecer un tamaño de fuente base */
+}
+
+/* Estilos para links globales (si los hubiera fuera de componentes específicos) */
+a {
+  color: #007bff; /* Color de link primario de Bootstrap */
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3; /* Color de link más oscuro al hacer hover */
+  text-decoration: none; /* Opcional: quitar subrayado al hacer hover si Bootstrap no lo hace */
+}
+
+/* Contenedor principal de la aplicación */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1; /* Asegura que el footer se quede abajo */
+  padding-top: 20px; /* Espacio superior */
+  padding-bottom: 40px; /* Espacio inferior */
+}
+
+/* Ajustes de tipografía responsiva */
+h1, .h1 {
+  font-size: 2.25rem; /* Ajustar según la jerarquía visual deseada */
+}
+h2, .h2 {
+  font-size: 1.875rem;
+}
+h3, .h3 {
+  font-size: 1.5rem;
 }
 
 /* Header */
 .header {
-  background-color: #0f172a;
-  padding: 2rem;
+  background-color: #0f172a; /* Mantenemos el azul oscuro para el header si es un diseño intencional */
+  color: white; /* Texto blanco para el header oscuro */
+  padding: 1rem 0; /* Ajustar padding */
   text-align: center;
 }
 
 /* Barra de navegación principal */
 .navbar {
-  background-color: #009688; /* Teal oscuro */
   padding: 1rem;
 }
 
@@ -35,7 +72,7 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease; /* Generalizada la transición */
 }
 
 .menu a:hover {
@@ -67,7 +104,7 @@ body {
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease; /* Generalizada la transición */
 }
 
 .main-menu .active a {
@@ -80,6 +117,7 @@ body {
 }
 
 /* Sección hero */
+/* 
 .hero-section {
   position: relative;
   background-image: url('/assets/background.jpg');
@@ -88,36 +126,42 @@ body {
   padding: 10rem 0;
   text-align: center;
 }
+*/
 
 .banner {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.05); /* Un overlay muy sutil si el fondo es claro */
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem; /* Consistencia con otros border-radius */
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto; /* Añadir margen vertical */
+  color: #333; /* Asegurar que el texto sea legible si el banner es claro */
 }
 
 /* Botones */
 .btn-primary {
-  background-color: #0d6efd;
+  background-color: #007bff; /* Azul primario de Bootstrap */
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem; /* Ajustar padding para consistencia */
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.375rem; /* border-radius de Bootstrap */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease-in-out; /* Transición más rápida y diferente timing */
+  font-weight: 500;
 }
 
 .btn-primary:hover {
-  background-color: #0b5ed7;
+  background-color: #0056b3; /* Más oscuro al hacer hover */
+  transform: translateY(-1px); /* Ligero efecto de elevación */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Footer */
 .footer {
-  background-color: #0d6efd;
+  background-color: #343a40; /* Gris oscuro de Bootstrap para footer */
   color: white;
-  padding: 2rem;
+  padding: 2rem 0; /* Ajustar padding */
   text-align: center;
+  margin-top: auto; /* Empuja el footer al final si el contenido es corto */
 }
 
 /* Modal emergente */
@@ -140,9 +184,10 @@ body {
 
 .modal-content {
   background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  max-width: 800px;
+  padding: 1.5rem; /* Reducir padding en móviles por defecto */
+  border-radius: 0.5rem; /* Consistencia */
+  max-width: 90%; /* Usar porcentaje para que se adapte mejor */
+  width: 500px; /* Un ancho fijo como máximo */
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
@@ -163,4 +208,85 @@ body {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Media Queries para responsividad general */
+@media (min-width: 769px) { /* Desktop screens */
+  .modal-image {
+    max-width: 100%; /* Allow image to use more width of the modal content */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .modal-content {
+    max-width:1000px; /* Increase max-width of the modal content box further */
+  }
+}
+
+@media (max-width: 991.98px) { /* Tablets y pantallas medianas */
+  .container, .container-md, .container-sm {
+    max-width: 960px; /* Ajustar el max-width del container si es necesario */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px; /* Reducir ligeramente el tamaño de fuente base en móviles */
+  }
+
+  h1, .h1 {
+    font-size: 1.8rem; /* Reducir un poco más */
+  }
+  h2, .h2 {
+    font-size: 1.6rem;
+  }
+  h3, .h3 {
+    font-size: 1.25rem;
+  }
+
+  main {
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .banner {
+    padding: 1.25rem;
+    margin: 15px auto;
+  }
+
+  .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .modal-content {
+    padding: 1rem;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 14px; /* Aún más pequeño para móviles */
+  }
+  h1, .h1 {
+    font-size: 1.6rem;
+  }
+  h2, .h2 {
+    font-size: 1.4rem;
+  }
+  h3, .h3 {
+    font-size: 1.15rem;
+  }
+
+  main {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+  .banner {
+    padding: 1rem;
+  }
+  .modal-content {
+    padding: 1rem; /* Mantener padding para no hacerlo demasiado pequeño */
+  }
+  /* Ajustes adicionales para pantallas muy pequeñas si son necesarios */
 }

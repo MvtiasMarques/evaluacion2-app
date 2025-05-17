@@ -6,7 +6,7 @@
 
 /* Top Navigation Bar */
 .top-nav-bar {
-  background-color: #f0f8ff; /* Color de fondo celeste muy claro, ajustar al color exacto */
+  background-color: #167D83; /* Darkened Turquesa for better contrast */
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #dee2e6; /* Línea divisoria sutil */
@@ -23,17 +23,30 @@
 }
 
 .top-nav-links .nav-link {
-  color: #007bff; /* Color principal de Bootstrap, ajustar al color exacto del ejemplo */
+  color: white; /* Texto blanco para los enlaces superiores */
   font-weight: 500;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   text-transform: uppercase;
+  transition: color 0.3s ease; /* Añadida transición para el color */
 }
 
-.top-nav-links .nav-link:hover {
-  color: #0056b3; /* Un azul más oscuro para el hover */
+.top-nav-links .nav-link:hover,
+.top-nav-links .nav-link:focus {
+  color: #e0e0e0; /* Un gris claro para el hover y focus */
 }
 
+.top-nav-links .nav-link:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Focus style for the logo link in the top navigation bar */
+.top-nav-bar .navbar-brand:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: .25rem; /* Optional: for a slightly rounded outline appearance */
+}
 
 /* Main Navigation Bar */
 .main-nav-bar {
@@ -56,15 +69,23 @@
   transition: background-color 0.3s ease, border-bottom 0.3s ease;
 }
 
-.main-nav-links .nav-link:hover {
-  background-color: #003359; /* Un poco más oscuro al pasar el mouse */
+.main-nav-links .nav-link:hover,
+.main-nav-links .nav-link:focus {
+  background-color: #003359; /* Un poco más oscuro al pasar el mouse o enfocar */
   color: white;
 }
 
+.main-nav-links .nav-link:focus {
+  outline: 2px solid white; /* O un color que contraste bien con #004A7F */
+  outline-offset: 2px;
+}
+
 .main-nav-links .nav-link.active {
-  background-color: white;
-  color: #004A7F; /* Color del texto igual al fondo de la barra */
-  border-bottom: 3px solid #ffc107; /* Un acento amarillo o el color que prefieras */
+  background-color: transparent; /* O el mismo color que .main-nav-bar si se prefiere un ligero cambio */
+  color: white; /* Asegurar que el texto siga siendo blanco */
+  /* Podríamos añadir un borde inferior sutil si se desea un indicador más claro 
+  border-bottom: 3px solid #FFC107; /* Ejemplo con acento amarillo */
+  font-weight: bold; /* Puede que ya sea bold, pero para asegurar */
 }
 
 /* Responsive adjustments for toggler */
@@ -74,6 +95,13 @@
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Ensure clear focus on the toggler in the main navigation bar */
+.main-nav-bar .navbar-toggler:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  box-shadow: none; /* Override default Bootstrap box-shadow if any, to prefer outline */
 }
 
 /* Ajustes para que el logo y los links superiores estén bien alineados */
@@ -102,7 +130,7 @@
     border-bottom: none; /* Quitar borde inferior en móvil */
   }
   .main-nav-links .nav-link.active {
-    background-color: #003359; /* Fondo diferente para activo en móvil */
+    background-color: #003359; /* Fondo diferente para activo en móvil, un poco más oscuro que el normal */
     color: white;
     border-bottom: none;
   }

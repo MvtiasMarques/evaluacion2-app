@@ -4,6 +4,7 @@
   max-height: 70vh; /* Ajusta la altura máxima como necesites */
   overflow: hidden; /* Para asegurar que la imagen no se desborde si es más grande */
   position: relative; /* Para posible contenido superpuesto en el futuro */
+  background-color: #333; /* Color de fondo de respaldo */
 }
 
 .hero-image {

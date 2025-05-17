@@ -8,6 +8,7 @@ const ContactForm = () => {
     message: ''
   });
   const [errors, setErrors] = useState({});
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const validate = (values) => {
     const errors = {};
@@ -20,23 +21,44 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear submit status and errors when user starts typing
+    if (submitStatus) setSubmitStatus(null);
+    if (errors[e.target.name]) {
+      setErrors({ ...errors, [e.target.name]: null });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitStatus(null); // Reset status on new submission
     const validationErrors = validate(formData);
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      alert('Formulario enviado exitosamente!');
+      // Simulate API call
+      console.log('Formulario enviado:', formData);
+      setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
+      setErrors({}); // Clear errors on successful submission
+    } else {
+      setSubmitStatus('error');
     }
   };
 
   return (
     <div className="mt-5">
       <h2>Contáctanos</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
+        {submitStatus === 'success' && (
+          <div className="alert alert-success" role="alert">
+            ¡Formulario enviado exitosamente!
+          </div>
+        )}
+        {submitStatus === 'error' && Object.keys(errors).length > 0 && (
+          <div className="alert alert-danger" role="alert">
+            Por favor, corrige los errores en el formulario.
+          </div>
+        )}
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Nombre:</label>
           <input 
@@ -46,8 +68,10 @@ const ContactForm = () => {
             value={formData.name} 
             onChange={handleChange}
             className={`form-control ${errors.name ? 'is-invalid' : ''}`} 
+            aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? "nameError" : undefined}
           />
-          {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+          {errors.name && <div id="nameError" className="invalid-feedback">{errors.name}</div>}
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email:</label>
@@ -58,8 +82,10 @@ const ContactForm = () => {
             value={formData.email} 
             onChange={handleChange}
             className={`form-control ${errors.email ? 'is-invalid' : ''}`} 
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "emailError" : undefined}
           />
-          {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+          {errors.email && <div id="emailError" className="invalid-feedback">{errors.email}</div>}
         </div>
         <div className="mb-3">
           <label htmlFor="message" className="form-label">Mensaje:</label>
@@ -70,8 +96,10 @@ const ContactForm = () => {
             value={formData.message} 
             onChange={handleChange}
             className={`form-control ${errors.message ? 'is-invalid' : ''}`} 
+            aria-invalid={!!errors.message}
+            aria-describedby={errors.message ? "messageError" : undefined}
           ></textarea>
-          {errors.message && <div className="invalid-feedback">{errors.message}</div>}
+          {errors.message && <div id="messageError" className="invalid-feedback">{errors.message}</div>}
         </div>
         <button type="submit" className="btn btn-success w-100">Enviar</button>
       </form>

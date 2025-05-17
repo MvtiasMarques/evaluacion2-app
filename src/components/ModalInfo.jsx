@@ -1,14 +1,11 @@
 // src/components/ModalInfo.jsx
-import React, { useState } from 'react';
-import permisoImage from '../assets/permiso-circulacion.jpg'; // Ruta relativa desde components/
+import React from 'react';
 
-const ModalInfo = () => {
-  const [showModal, setShowModal] = useState(true);
-
+const ModalInfo = ({ onClose, title, children }) => {
   return (
     <div 
-      className={`modal ${showModal ? 'show' : ''}`} 
-      onClick={() => setShowModal(false)}
+      className="modal show"
+      onClick={onClose}
     >
       <div 
         className="modal-content" 
@@ -16,15 +13,14 @@ const ModalInfo = () => {
       >
         <button 
           className="close-btn"
-          onClick={() => setShowModal(false)}
+          onClick={onClose}
         >
           X
         </button>
-        <img 
-          src={permisoImage} 
-          alt="Permiso de Circulación" 
-          className="modal-image"
-        />
+        {title && <h2 className="modal-title text-center mb-3">{title}</h2>}
+        <div className="modal-body">
+          {children}
+        </div>
       </div>
     </div>
   );

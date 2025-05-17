@@ -5,7 +5,7 @@ import './Header.css'; // Compartirá estilos con Header.css
 
 const MainNav = () => {
   return (
-    <Navbar className="main-nav-bar" variant="dark" expand="lg">
+    <Navbar className="main-nav-bar" variant="dark" expand="lg" aria-label="Navegación principal">
       <Container fluid className="main-nav-container">
         <Navbar.Toggle aria-controls="main-navbar-nav" />
         <Navbar.Collapse id="main-navbar-nav">

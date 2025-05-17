@@ -1,0 +1,144 @@
+/* src/components/HeroSection.css */
+.permiso-circulacion-section {
+  padding: 40px 0;
+  background-color: #f8f9fa; /* Light grey background, similar to reference */
+}
+
+.permiso-main-banner {
+  background-color: #ffffff; /* White background for the content part */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.permiso-image-col img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+.permiso-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.permiso-text-col h2 {
+  color: #0056b3; /* Darker blue, adjust as needed from reference */
+  font-weight: bold;
+  font-size: 1.75rem; /* Adjust size as needed */
+  margin-bottom: 15px;
+  line-height: 1.3; /* Mejorar espaciado de línea para títulos largos */
+}
+
+.permiso-text-col .lead {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.5; /* Mejorar espaciado de línea */
+}
+
+.permiso-text-col .mas-info-button {
+  background-color: #007bff; /* Bootstrap primary blue */
+  border-color: #007bff;
+  font-weight: bold;
+  padding: 12px 30px; /* Slightly larger padding */
+  font-size: 1.1rem; /* Larger font size */
+  align-self: flex-start; /* Align button to the start if text is centered on small screens */
+}
+
+.permiso-text-col .mas-info-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.cholchol-avanza-banner {
+  background-color: #ffc107; /* Yellow color from reference */
+  color: #212529; /* Dark text for contrast */
+  padding: 25px 0; /* Increased padding */
+}
+
+.cholchol-avanza-banner .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Add gap between items */
+}
+
+.cholchol-avanza-banner .banner-text {
+  font-size: 1.3rem; /* Increased font size */
+  font-weight: 500; /* Medium weight */
+  display: flex;
+  align-items: center;
+  text-align: left;
+  line-height: 1.4; /* Mejorar espaciado de línea */
+}
+
+.cholchol-avanza-banner .banner-text .fa-car { /* Style for FontAwesome car icon */
+  font-size: 2rem; /* Larger icon */
+  margin-right: 15px;
+  color: #0056b3; /* Icon color */
+}
+
+.cholchol-avanza-banner .banner-logo {
+  height: 60px; /* Adjust size as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) { /* Tablet and smaller */
+  .permiso-text-col h2 {
+    font-size: 1.6rem; /* Ajuste para tablet */
+  }
+  .permiso-text-col .lead {
+    font-size: 1rem;
+  }
+  .cholchol-avanza-banner .banner-text {
+    font-size: 1.15rem; /* Ajuste para tablet */
+  }
+  .cholchol-avanza-banner .banner-logo {
+    height: 50px;
+  }
+}
+
+@media (max-width: 767.98px) { /* Mobile */
+  .permiso-text-col {
+    text-align: center;
+    margin-top: 20px; /* Reducir margen superior en móviles */
+    align-items: center; /* Center content including button */
+  }
+  .permiso-text-col h2 {
+    font-size: 1.4rem; /* Ajuste para móvil */
+  }
+  .permiso-text-col .lead {
+    font-size: 0.95rem; /* Ajuste para móvil */
+    margin-bottom: 20px;
+    line-height: 1.5; /* Mejorar espaciado de línea */
+  }
+  
+  .permiso-text-col .mas-info-button {
+    align-self: center; /* Ensure button is centered */
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+
+  .permiso-main-banner {
+    padding: 15px;
+  }
+
+  .cholchol-avanza-banner .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cholchol-avanza-banner .banner-text {
+    margin-bottom: 15px;
+    font-size: 1.1rem; /* Ajuste para móvil */
+  }
+   .cholchol-avanza-banner .banner-text .fa-car {
+    font-size: 1.6rem;
+    margin-right: 10px;
+  }
+  .cholchol-avanza-banner .banner-logo {
+    height: 50px; /* Reducir un poco en móvil */
+  }
+}
